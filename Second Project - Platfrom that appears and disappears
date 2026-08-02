@@ -1,0 +1,38 @@
+-- Project 2 - Platform appears and disappears
+
+local platform = workspace.Disappears
+
+local available = true
+
+platform.CanCollide = true
+
+local function touch ()
+	
+	available = false
+	
+	for i = 1,10 do
+		task.wait(0.2)
+		platform.Transparency = platform.Transparency + 0.1
+	end
+	
+	platform.CanCollide = false
+	
+	
+	for i = 1,5 do
+		task.wait(1)
+		platform.Transparency = platform.Transparency - 0.2
+	end
+	
+	platform.CanCollide = true
+	
+	available = true
+	
+end
+
+platform.Touched:Connect(function()
+	
+	if available then
+		touch()
+	end
+	
+end)
