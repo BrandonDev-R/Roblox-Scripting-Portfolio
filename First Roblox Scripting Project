@@ -1,0 +1,54 @@
+-- Project 1
+
+local part = workspace.Part
+
+local available = true
+	
+local finished = false
+
+local function touch ()
+	
+	print("¡Here is your reward!")
+	part.BrickColor = BrickColor.new("Really red")
+	available = false
+	finished = true
+	part.Transparency = 0.1
+	task.wait(0.1)
+	part.Transparency = 0.2
+	task.wait(0.1)
+	part.Transparency = 0.3
+	task.wait(0.1)
+	part.Transparency = 0.4
+	task.wait(0.1)
+	part.Transparency = 0.5
+	task.wait(0.1)
+	part.Transparency = 0.6
+	task.wait(0.1)
+	part.Transparency = 0.7
+	task.wait(0.1)
+	part.Transparency = 0.8
+	task.wait(0.1)
+	part.Transparency = 0.9
+	task.wait(0.1)
+	part.Transparency = 10
+	task.wait(0.1)
+
+	part:Destroy()
+	
+end
+
+	
+part.Touched:Connect(function()
+	
+	if available then
+		touch()
+	end
+	
+	if finished then
+
+		print("Worked")
+		finished = false
+
+	end
+
+end)
